@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Sigma Client - Version & Changelog</title>
+	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/styleV2.css">
+	<link rel="stylesheet" href="releases/v5.1.0/css/all.css">
+	<script src="static/js/particles.min.js"></script>
+	<style>
+		body { background-color: #ffffff; color: #333333; }
+		.version-card {
+			max-width: 720px;
+			margin: 40px auto;
+			border: 2px solid #cccccc;
+			border-radius: 6px;
+			padding: 35px;
+			background: #ffffff;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+		}
+		.version-title {
+			font-size: 32px;
+			font-weight: bold;
+			color: #308092;
+		}
+		.state-badge {
+			background-color: #e74c3c;
+			color: #ffffff;
+			padding: 4px 16px;
+			font-size: 13px;
+			border-radius: 20px;
+			font-weight: bold;
+			display: inline-block;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-top: 8px;
+		}
+		.section-header {
+			font-weight: bold;
+			font-size: 17px;
+			color: #2c3e50;
+			margin-top: 20px;
+			margin-bottom: 10px;
+		}
+		.changelog-list {
+			list-style-type: none;
+			padding-left: 0;
+			margin-top: 10px;
+		}
+		.changelog-list li {
+			padding: 10px 14px;
+			margin-bottom: 8px;
+			background: #f8f9fa;
+			border-left: 4px solid #308092;
+			font-size: 14px;
+			border-radius: 0 4px 4px 0;
+			color: #222222;
+		}
+		.badge-add { color: #2ecc71; font-weight: bold; margin-right: 8px; }
+		.badge-fix { color: #3498db; font-weight: bold; margin-right: 8px; }
+		.badge-improved { color: #9b59b6; font-weight: bold; margin-right: 8px; }
+		.btn-custom {
+			background-color: #308092;
+			color: white !important;
+			font-weight: bold;
+			padding: 10px 22px;
+			text-decoration: none;
+			border-radius: 4px;
+			display: inline-block;
+			margin: 5px;
+		}
+		.btn-custom:hover {
+			background-color: #246574;
+			color: white !important;
+			text-decoration: none;
+		}
+		.btn-secondary-custom {
+			background-color: #7f8c8d;
+			color: white !important;
+			font-weight: bold;
+			padding: 10px 22px;
+			text-decoration: none;
+			border-radius: 4px;
+			display: inline-block;
+			margin: 5px;
+		}
+		.btn-secondary-custom:hover {
+			background-color: #636e72;
+			color: white !important;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+
+<div class="background-holder">
+	<div id="particles-js" class="canvas-small"></div>
+	<div class="container-fluid main main-small" style="text-align: center; padding-top: 30px;">
+		<img src="static/img/logo2.png" alt="Sigma logo" width="250" class="logo"/>
+	</div>
+</div>
+
+<div class="container text-center">
+	<div class="version-card">
+		<div class="version-title">Sigma 4.13</div>
+		<div>
+			<span class="state-badge">Alpha State</span>
+		</div>
+		<p style="color: #666; font-size: 14px; margin-top: 10px;">Active Development & Testing Build</p>
+
+		<hr style="border-top: 1px solid #eeeeee; margin: 25px 0;">
+
+		<!-- CLIENT UPDATES SECTION -->
+		<div class="section-header text-left">🎮 Minecraft Client Updates (v4.13)</div>
+		<ul class="changelog-list text-left">
+			<li><span class="badge-add">[+]</span> Added <strong>Hypixel NoSlow</strong> bypass module</li>
+			<li><span class="badge-fix">[>]</span> Fixed original Sigma <strong>font system slop & bugs</strong></li>
+			<li><span class="badge-add">[+]</span> Updated Client Version Identifier to <strong>v4.13</strong> in <code>Client.java</code></li>
+			<li><span class="badge-fix">[>]</span> Fixed <code>GuiLogin</code> and <code>GuiRegister</code> Text Box Regex (Allowed <code>@</code>, <code>.</code>, <code>-</code>, <code>+</code> characters for Email Login)</li>
+			<li><span class="badge-improved">[~]</span> Updated Login GUI UI Label Prompt to <em>"Enter your username or email"</em></li>
+			<li><span class="badge-add">[+]</span> Added Automatic HWID Payload Transmission on Login to Auto-Bind HWID after Password Reset</li>
+			<li><span class="badge-add">[+]</span> Added 4.13 Release Changelog Component to Main Menu GUI (<code>GuiModdedMainMenu</code>)</li>
+		</ul>
+
+		<!-- BACKEND & WEB UPDATES SECTION -->
+		<div class="section-header text-left mt-4">🌐 Backend & Web Infrastructure Updates</div>
+		<ul class="changelog-list text-left">
+			<li><span class="badge-add">[+]</span> Added Litecoin (LTC) Automated Payment Checkout System</li>
+			<li><span class="badge-add">[+]</span> Added 2-Step Email Verification Password Reset System</li>
+			<li><span class="badge-add">[+]</span> Added Password Change Email Notification Confirmation</li>
+			<li><span class="badge-add">[+]</span> Enforced Permanent Email-Key Binding Security</li>
+			<li><span class="badge-add">[+]</span> Added Immediate Client Re-Authentication on Password Reset (clears HWID binding)</li>
+			<li><span class="badge-add">[+]</span> Added Case-Insensitive Username & Email Login Support</li>
+			<li><span class="badge-fix">[>]</span> Fixed Input Field Styling with Solid Black Text Color (<code>#000000</code>)</li>
+			<li><span class="badge-improved">[~]</span> Enhanced Input Sanitation and Security Validation against XSS / Injection Attacks</li>
+		</ul>
+
+		<div class="text-center mt-4">
+			<a href="index.html" class="btn-custom">Back to Main Page</a>
+		</div>
+	</div>
+</div>
+
+<div class="footer text-center" style="margin-top: 40px; padding: 20px; color: #777;">
+	Copyright &copy; 2016 - 2026 Omikron. All Rights Reserved.
+</div>
+
+<script>
+	particlesJS("particles-js", {
+		"particles": {
+			"number": { "value": 120, "density": { "enable": true, "value_area": 160 } },
+			"color": { "value": "#ffffff" },
+			"shape": { "type": "circle" },
+			"opacity": { "value": 1, "random": true },
+			"size": { "value": 3, "random": true },
+			"line_linked": { "enable": false },
+			"move": { "enable": true, "speed": 3 }
+		},
+		"retina_detect": true
+	});
+</script>
+</body>
+</html>
