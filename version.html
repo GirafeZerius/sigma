@@ -42,6 +42,14 @@
 			margin-top: 20px;
 			margin-bottom: 10px;
 		}
+		.version-divider {
+			font-weight: bold;
+			font-size: 22px;
+			color: #308092;
+			margin-top: 35px;
+			padding-top: 25px;
+			border-top: 1px solid #eeeeee;
+		}
 		.changelog-list {
 			list-style-type: none;
 			padding-left: 0;
@@ -102,7 +110,7 @@
 
 <div class="container text-center">
 	<div class="version-card">
-		<div class="version-title">Sigma 4.13</div>
+		<div class="version-title">Sigma 4.15</div>
 		<div>
 			<span class="state-badge">Alpha State</span>
 		</div>
@@ -110,29 +118,68 @@
 
 		<hr style="border-top: 1px solid #eeeeee; margin: 25px 0;">
 
-		<!-- CLIENT UPDATES SECTION -->
-		<div class="section-header text-left">🎮 Minecraft Client Updates (v4.13)</div>
+		<!-- ===================== v4.15 ===================== -->
+		<div class="section-header text-left">🎮 Client Updates (v4.15)</div>
 		<ul class="changelog-list text-left">
-			<li><span class="badge-add">[+]</span> Added <strong>Hypixel NoSlow</strong> bypass module</li>
-			<li><span class="badge-fix">[>]</span> Fixed original Sigma <strong>font system slop & bugs</strong></li>
-			<li><span class="badge-add">[+]</span> Updated Client Version Identifier to <strong>v4.13</strong> in <code>Client.java</code></li>
-			<li><span class="badge-fix">[>]</span> Fixed <code>GuiLogin</code> and <code>GuiRegister</code> Text Box Regex (Allowed <code>@</code>, <code>.</code>, <code>-</code>, <code>+</code> characters for Email Login)</li>
-			<li><span class="badge-improved">[~]</span> Updated Login GUI UI Label Prompt to <em>"Enter your username or email"</em></li>
-			<li><span class="badge-add">[+]</span> Added Automatic HWID Payload Transmission on Login to Auto-Bind HWID after Password Reset</li>
-			<li><span class="badge-add">[+]</span> Added 4.13 Release Changelog Component to Main Menu GUI (<code>GuiModdedMainMenu</code>)</li>
+			<li><span class="badge-add">[+]</span> Added Grim and Watchdog NoSlow modes</li>
+			<li><span class="badge-add">[+]</span> Added Grim, Watchdog and GrimNoSlow KeepSprint modes</li>
+			<li><span class="badge-add">[+]</span> Added Hypixel Autoblock</li>
+			<li><span class="badge-add">[+]</span> Added Legit Velocity</li>
+			<li><span class="badge-add">[+]</span> Added Scaffold Diagonal Sprint</li>
+			<li><span class="badge-add">[+]</span> Added Telly flag safety</li>
+			<li><span class="badge-add">[+]</span> Added InvMove Grim mode</li>
+			<li><span class="badge-add">[+]</span> Added InvManager Prediction mode</li>
+			<li><span class="badge-add">[+]</span> Added Grim Jesus</li>
+			<li><span class="badge-add">[+]</span> Added remembered login</li>
+			<li><span class="badge-add">[+]</span> Added refresh-token alt support</li>
+			<li><span class="badge-improved">[~]</span> Improved KillAura hit timing</li>
+			<li><span class="badge-improved">[~]</span> Improved click timing</li>
+			<li><span class="badge-improved">[~]</span> Improved BedNuker bed protection</li>
+			<li><span class="badge-fix">[>]</span> Fixed packet order flags</li>
+			<li><span class="badge-fix">[>]</span> Fixed missing player heads</li>
+			<li><span class="badge-fix">[>]</span> Fixed water slowdown with NoSlowdown</li>
+			<li><span class="badge-fix">[>]</span> Fixed rotations snapping</li>
 		</ul>
 
-		<!-- BACKEND & WEB UPDATES SECTION -->
-		<div class="section-header text-left mt-4">🌐 Backend & Web Infrastructure Updates</div>
+		<div class="version-divider text-left">4.14</div>
+		<div class="section-header text-left">🎮 Client Updates (v4.14)</div>
 		<ul class="changelog-list text-left">
-			<li><span class="badge-add">[+]</span> Added Litecoin (LTC) Automated Payment Checkout System</li>
-			<li><span class="badge-add">[+]</span> Added 2-Step Email Verification Password Reset System</li>
-			<li><span class="badge-add">[+]</span> Added Password Change Email Notification Confirmation</li>
-			<li><span class="badge-add">[+]</span> Enforced Permanent Email-Key Binding Security</li>
-			<li><span class="badge-add">[+]</span> Added Immediate Client Re-Authentication on Password Reset (clears HWID binding)</li>
-			<li><span class="badge-add">[+]</span> Added Case-Insensitive Username & Email Login Support</li>
-			<li><span class="badge-fix">[>]</span> Fixed Input Field Styling with Solid Black Text Color (<code>#000000</code>)</li>
-			<li><span class="badge-improved">[~]</span> Enhanced Input Sanitation and Security Validation against XSS / Injection Attacks</li>
+			<li><span class="badge-add">[+]</span> Added Predictive Autoblock</li>
+			<li><span class="badge-add">[+]</span> Added Packet Autoblock</li>
+			<li><span class="badge-add">[+]</span> Added BackTrack, TickBase, AutoRod and AutoProjectile</li>
+			<li><span class="badge-add">[+]</span> Added NoSprint Adapt</li>
+			<li><span class="badge-add">[+]</span> Added Mospixel fly and speed</li>
+			<li><span class="badge-add">[+]</span> Added Halloween theme</li>
+			<li><span class="badge-add">[+]</span> Added cracked alts</li>
+			<li><span class="badge-improved">[~]</span> Reworked Telly</li>
+			<li><span class="badge-fix">[>]</span> Fixed autoblock bad packets</li>
+			<li><span class="badge-fix">[>]</span> Fixed diagonal sprint flags</li>
+			<li><span class="badge-fix">[>]</span> Fixed font sizing</li>
+			<li><span class="badge-fix">[>]</span> Fixed the click GUI</li>
+			<li><span class="badge-fix">[>]</span> Fixed hidden NPCs</li>
+			<li><span class="badge-fix">[>]</span> Fixed the Random alt crash</li>
+		</ul>
+
+		<div class="version-divider text-left">4.13</div>
+		<div class="section-header text-left">🎮 Client Updates (v4.13)</div>
+		<ul class="changelog-list text-left">
+			<li><span class="badge-add">[+]</span> Added Hypixel NoSlow</li>
+			<li><span class="badge-fix">[>]</span> Fixed the font system</li>
+			<li><span class="badge-fix">[>]</span> Fixed email login</li>
+			<li><span class="badge-improved">[~]</span> Improved the login screen</li>
+			<li><span class="badge-add">[+]</span> Added automatic HWID binding after password reset</li>
+		</ul>
+
+		<div class="section-header text-left">🌐 Web Updates (v4.13)</div>
+		<ul class="changelog-list text-left">
+			<li><span class="badge-add">[+]</span> Added Litecoin payments</li>
+			<li><span class="badge-add">[+]</span> Added email verification for password resets</li>
+			<li><span class="badge-add">[+]</span> Added password change notifications</li>
+			<li><span class="badge-add">[+]</span> Improved account security</li>
+			<li><span class="badge-add">[+]</span> Added re-authentication on password reset</li>
+			<li><span class="badge-add">[+]</span> Added case-insensitive login</li>
+			<li><span class="badge-fix">[>]</span> Fixed input field styling</li>
+			<li><span class="badge-improved">[~]</span> Improved input validation</li>
 		</ul>
 
 		<div class="text-center mt-4">
