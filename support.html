@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigma Client - Support & Contact</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <style>
+        body { background-color: #ffffff; margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .logo-container { text-align: center; padding-top: 40px; padding-bottom: 10px; }
+        .logo { width: 220px; height: auto; }
+        .box-card { max-width: 500px; margin: 30px auto; border: 2px solid #ccc; border-radius: 4px; padding: 25px; }
+        .btn-custom { background-color: #308092; color: white; width: 100%; font-weight: bold; border: none; padding: 12px; font-size: 16px; border-radius: 4px; transition: all 0.2s; }
+        .btn-custom:hover { background-color: #308092 !important; color: #000000 !important; }
+        input, select, textarea, .form-control {
+            color: #000000 !important;
+            background-color: #ffffff !important;
+            border: 2px solid #cccccc !important;
+            font-size: 15px !important;
+        }
+        input::placeholder, textarea::placeholder { color: #666666 !important; opacity: 1 !important; }
+        input:focus, select:focus, textarea:focus { color: #000000 !important; background-color: #ffffff !important; border-color: #308092 !important; }
+    </style>
+</head>
+<body>
+<div class="logo-container">
+    <img src="https://raw.githubusercontent.com/GirafeZerius/Rift/main/logo2.png" alt="Sigma logo" class="logo"/>
+</div>
+<div class="container text-center">
+    <div class="box-card text-left">
+        <h3 class="text-center" style="color: #308092; margin-bottom: 20px;">Sigma Support & Help</h3>
+        <p style="font-size: 14px; color: #666;" class="text-center">Have a problem with your account, found a bug, or want to appeal a suspension? Fill out the form below!</p>
+        
+        <div id="web-notification" class="alert alert-danger" style="display: none; border-left: 4px solid #e74c3c; font-size: 14px; margin-bottom: 20px;">
+            <strong id="notif-title">Error: </strong> <span id="notif-message"></span>
+        </div>
+
+        <form id="support-form" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label style="font-weight: bold; font-size: 14px;">Your Email Address:</label>
+                <input type="email" id="email" class="form-control" placeholder="you@domain.com" required>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold; font-size: 14px;">Category:</label>
+                <select id="category" class="form-control" required>
+                    <option value="Bug Report">Bug Report</option>
+                    <option value="Account Issue">Account Issue</option>
+                    <option value="Ban Appeal">Ban Appeal</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold; font-size: 14px;">Subject:</label>
+                <input type="text" id="subject" class="form-control" placeholder="Brief summary of your request" required>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold; font-size: 14px;">Message Details:</label>
+                <textarea id="message" class="form-control" rows="5" placeholder="Provide details about your inquiry..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-custom mt-2">Submit Support Ticket</button>
+        </form>
+        
+        <div id="success-state" style="display: none;" class="text-center">
+            <h4 style="color: #27ae60; font-weight: bold;">Ticket Submitted!</h4>
+            <p style="font-size: 15px; color: #555; margin-top: 15px;">Thank you! Your ticket has been recorded. Our team will review your inquiry shortly.</p>
+            <a href="/" class="btn btn-custom mt-3">Back to Main Page</a>
+        </div>
+    </div>
+</div>
+<script>
+const API_BASE = (window.location.port === '8080') ? '' : 'https://api.sigmaclient.online';
+
+function showWebNotification(message, isSuccess = false) {
+    const notifBox = document.getElementById('web-notification');
+    const titleSpan = document.getElementById('notif-title');
+    const msgSpan = document.getElementById('notif-message');
+    
+    if (isSuccess) {
+        notifBox.className = 'alert alert-success';
+        notifBox.style.borderLeft = '4px solid #2ecc71';
+        titleSpan.innerText = 'Success: ';
+    } else {
+        notifBox.className = 'alert alert-danger';
+        notifBox.style.borderLeft = '4px solid #e74c3c';
+        titleSpan.innerText = 'Error: ';
+    }
+    
+    msgSpan.innerText = message;
+    notifBox.style.display = 'block';
+    notifBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+async function submitForm(e) {
+    e.preventDefault();
+    const notifBox = document.getElementById('web-notification');
+    if (notifBox) notifBox.style.display = 'none';
+
+    const email = document.getElementById('email').value.trim();
+    const category = document.getElementById('category').value;
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    try {
+        const res = await fetch(`${API_BASE}/api/support/submit`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, category, subject, message })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+            showWebNotification(data.detail || 'Failed to submit support ticket.', false);
+            return;
+        }
+        document.getElementById('support-form').style.display = 'none';
+        document.getElementById('success-state').style.display = 'block';
+    } catch (err) {
+        showWebNotification('Could not connect to support API server. Please try again later.', false);
+    }
+}
+</script>
+</body>
+</html>
